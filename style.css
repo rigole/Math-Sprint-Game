@@ -268,7 +268,7 @@ button:active {
 }
 
 /* Media Query: iphone */
-@media screen and (max-width: 376){
+@media screen and (max-width: 376px){
     .best-score {
         left: 232px;
     }
