@@ -31,6 +31,27 @@ let secondNumber = 0;
 let equationObject = {};
 const wrongFormat = [];
 
+// Starting the countdown
+function countdownStart() {
+    countdown.textContent = '3';
+    setTimeout(() => {
+        countdown.textContent = '2';
+    }, 1000);
+    setTimeout(() => {
+        countdown.textContent = '1';
+    }, 2000);
+    setTimeout(() => {
+        countdown.textContent = 'GO!';
+    }, 3000);
+}
+
+
+// Navigate from Splash to Countdown Page
+function showCountdown() {
+    countdownPage.hidden = false;
+    splashPage.hidden = true;
+    countdownStart();
+}
 // Get the value from the selected radio button
 function getRadioValue() {
     let radioValue = 0;
@@ -59,6 +80,10 @@ function selectQuestionAmount(e) {
      e.preventDefault();
       questionAmount = getRadioValue();
       console.log(questionAmount);
+      if (questionAmount ){
+          showCountdown();
+      }
+
 }
 
 // Event Listeners
