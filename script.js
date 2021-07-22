@@ -31,3 +31,13 @@ let secondNumber = 0;
 let equationObject = {};
 const wrongFormat = [];
 
+startForm.addEventListener('click', () => {
+    radioContainers.forEach((radioEl) => {
+        // REMOVE DEFAULT SELECTED LABEL STYLING
+        radioEl.classList.remove('selected-label');
+        // Add it back if radio input is check
+        if (radioEl.children[1].checked){
+            radioEl.classList.add('selected-label');
+        }
+    });
+});
