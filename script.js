@@ -32,6 +32,23 @@ let secondNumber = 0;
 let equationObject = {};
 const wrongFormat = [];
 
+// Time
+let timer;
+let timePlayed = 0;
+let basedTime = 0;
+let penaltyTime = 0;
+let finalTime = 0;
+let finalTimeDisplay = '0.0s';
+
+// Start timer when game page is clicked
+
+function startTimer() {
+    // Reset times
+    timePlayed = 0;
+    penaltyTime = 0;
+    finalTime = 0;
+}
+
 // Scroll
 let valueY = 0;
 
@@ -192,3 +209,4 @@ function selectQuestionAmount(e) {
 
 // Event Listeners
 startForm.addEventListener('submit', selectQuestionAmount);
+gamePage.addEventListener('click', startTimer);
