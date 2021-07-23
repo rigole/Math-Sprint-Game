@@ -40,6 +40,23 @@ let penaltyTime = 0;
 let finalTime = 0;
 let finalTimeDisplay = '0.0s';
 
+// Show Score Page
+function ShowScorePage() {
+    gamePage.hidden = true;
+    scorePage.hidden = false;
+}
+
+// Format & Display Time in Dom
+function scoresToDom(){
+    finalTimeDisplay = finalTime.toFixed(1);
+    basedTime = timePlayed.toFixed(1);
+    penaltyTime = penaltyTime.toFixed(1);
+    baseTimeEl.textContent = `Base Time: ${basedTime}s`;
+    penaltyTimeEl.textContent = `Penalty: +${penaltyTime}s`;
+    finalTimeEl.textContent = `${finalTimeDisplay}s`;
+    ShowScorePage();
+}
+
 // Stop Timer, Process Results, go to Score Page
 
 function checkTime() {
@@ -57,6 +74,7 @@ function checkTime() {
             }
         });
         finalTime =  timePlayed + penaltyTime;
+        scoresToDom();
     }
 }
 
@@ -79,7 +97,6 @@ function startTimer() {
 
 // Scroll
 let valueY = 0;
-
 
 
 // Scroll, Store user selection in playerGuessArray
