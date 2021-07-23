@@ -31,6 +31,26 @@ let secondNumber = 0;
 let equationObject = {};
 const wrongFormat = [];
 
+// Get Random Number up to a max number
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+// Create Correct/Incorrect random equations
+function createEquations() {
+    // Randomly choose how many equations there should be
+    const correctEquations = getRandomInt(questionAmount);
+    console.log('correct equations:', correctEquations);
+    // Set amount of wrong equations
+    const wrongEquations = questionAmount - correctEquations;
+    console.log('Wrong equations:', wrongEquations);
+}
+
+
+
+
+
+
+
 // Starting the countdown
 function countdownStart() {
     countdown.textContent = '3';
@@ -51,6 +71,7 @@ function showCountdown() {
     countdownPage.hidden = false;
     splashPage.hidden = true;
     countdownStart();
+    createEquations();
 }
 // Get the value from the selected radio button
 function getRadioValue() {
