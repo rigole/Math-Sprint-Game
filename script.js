@@ -40,6 +40,22 @@ let penaltyTime = 0;
 let finalTime = 0;
 let finalTimeDisplay = '0.0s';
 
+// Stop Timer, Process Results, go to Score Page
+
+function checkTime() {
+    console.log(timePlayed);
+    if (playerGuessArray.length == questionAmount){
+        console.log('Player guess array:', playerGuessArray);
+        clearInterval(timer);
+    }
+}
+
+// Add a tenth of a second to timePlayed
+function addTime() {
+    timePlayed += 0.1;
+    checkTime();
+}
+
 // Start timer when game page is clicked
 
 function startTimer() {
@@ -47,10 +63,14 @@ function startTimer() {
     timePlayed = 0;
     penaltyTime = 0;
     finalTime = 0;
+    timer = setInterval(addTime, 100);
+    gamePage.removeEventListener('click', startTimer);
 }
 
 // Scroll
 let valueY = 0;
+
+
 
 // Scroll, Store user selection in playerGuessArray
 function select(guessedTrue) {
