@@ -38,6 +38,7 @@ function playAgain() {
 let questionAmount = 0;
 let equationsArray = [];
 let playerGuessArray = [];
+let bestScoreArray= [];
 
 // Game Page
 let firstNumber = 0;
@@ -116,6 +117,21 @@ function startTimer() {
 
 // Scroll
 let valueY = 0;
+
+// Check Local Storage for best Score
+function getSavedBestScores() {
+    if (localStorage.getItem('bestScores')){
+        bestScoreArray = JSON.parse(localStorage.bestScores);
+    } else{
+        bestScoreArray = [
+            { questions: 10, bestScore: finalTimeDisplay },
+            { questions: 25, bestScore: finalTimeDisplay },
+            { questions: 50, bestScore: finalTimeDisplay },
+            { questions: 99, bestScore: finalTimeDisplay },
+        ];
+        localStorage.setItem('bestScores', JSON.stringify(bestScoreArray));
+    }
+}
 
 
 // Scroll, Store user selection in playerGuessArray
