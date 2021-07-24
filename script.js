@@ -52,7 +52,7 @@ let timePlayed = 0;
 let basedTime = 0;
 let penaltyTime = 0;
 let finalTime = 0;
-let finalTimeDisplay = '0.0s';
+let finalTimeDisplay = '0.0 ';
 
 // Show Score Page
 function ShowScorePage() {
@@ -118,6 +118,13 @@ function startTimer() {
 // Scroll
 let valueY = 0;
 
+// Refresh Splash Page Best Scores
+function bestScoresToDOM() {
+     bestScores.forEach((bestScore, index) =>{
+         bestScore.textContent = `${bestScoreArray[index].bestScore}s`;
+     })
+}
+
 // Check Local Storage for best Score
 function getSavedBestScores() {
     if (localStorage.getItem('bestScores')){
@@ -131,6 +138,7 @@ function getSavedBestScores() {
         ];
         localStorage.setItem('bestScores', JSON.stringify(bestScoreArray));
     }
+    bestScoresToDOM();
 }
 
 
@@ -292,3 +300,6 @@ function selectQuestionAmount(e) {
 // Event Listeners
 startForm.addEventListener('submit', selectQuestionAmount);
 gamePage.addEventListener('click', startTimer);
+
+// On Load
+getSavedBestScores();
